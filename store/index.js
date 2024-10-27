@@ -11,6 +11,11 @@ const createStore = () => {
       cart: {
         items: [],
       },
+      lastVisible: null, // Documento para el cursor
+      firstVisible: null,
+      currentPage: 1,
+      pageSize: 10, // Número de productos por página
+      selectedCategory: ""
     },
     mutations: {
       setProducts(state, products) {
@@ -34,20 +39,54 @@ const createStore = () => {
           state.cart.items.splice(index, 1);
         }
       },
+      setLastVisible(state, lastVisible) {
+        state.lastVisible = lastVisible;
+      },
+      setFirstVisible(state, firstVisible) {
+        state.firstVisible = firstVisible;
+      },
+      setCurrentPage(state, page) {
+        state.currentPage = page;
+      },
+      setSelectedCategory(state, category) {
+        state.selectedCategory = category;
+      },
     },
     actions: {
-      async fetchProducts({ commit }) {
+      async fetchProducts({ commit, state }) {
         try {
-          const response = await db.collection("products").get();
-          const products = response.docs.map((doc) => ({
+          let query = db.collection("products").orderBy("name").limit(state.pageSize);
+
+          // Si se ha seleccionado una categoría, filtrar por ella
+          if (state.selectedCategory) {
+            query = query.where("category", "==", state.selectedCategory);
+          }
+
+          // Para paginación hacia adelante
+          if (state.currentPage > 1 && state.lastVisible) {
+            query = query.startAfter(state.lastVisible);
+          }
+
+          const snapshot = await query.get();
+          const products = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data(),
           }));
+
           commit("setProducts", products);
-          commit("setFilteredProducts", products);
+          commit("setFilteredProducts", products); // Filtrados se asignan a productos
+          commit("setLastVisible", snapshot.docs[snapshot.docs.length - 1]); // Para la siguiente página
+          commit("setFirstVisible", snapshot.docs[0]); // Para la página anterior
         } catch (error) {
           console.error("Error fetching products:", error);
         }
+      },
+      // Acción para manejar el filtro por categoría y reiniciar la paginación
+      async filterProducts({ commit, dispatch }, category) {
+        commit("setSelectedCategory", category);
+        commit("setCurrentPage", 1); // Reiniciar la página actual
+        commit("setLastVisible", null); // Reiniciar el cursor
+        await dispatch("fetchProducts");
       },
       async fetchCategories({ commit }) {
         try {
