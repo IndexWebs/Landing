@@ -30,9 +30,12 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Karla:wght@700&display=swap',
       },
+      {
+        rel: 'stylesheet',
+        href: 'href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"',
+      },
     ],
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/main.css"],
 

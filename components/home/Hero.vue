@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-secondarylight dark:bg-gray-900 flex flex-col justify-start md:justify-center pb-20 md:pb-0 h-auto md:h-[80vh] rounded-b-4xl px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
+    class="bg-secondarylight dark:bg-gray-900 flex flex-col justify-start md:justify-center pb-20 md:pb-0 h-auto md:h-[84vh] rounded-b-4xl px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
     <div class="grid w-full pt-20 pb-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
       <div class="mr-auto flex flex-col place-self-center lg:col-span-7 realative items-center md:items-start">
         <img src="@/assets/images/MobileHeroIllustration.svg"
@@ -15,7 +15,7 @@
           <PrimaryButton text="Unete a la comunidad" />
         </div>
         <img src="@/assets/images/HeroIllustration.svg"
-          class="hidden md:block md:absolute w-full md:w-[65%] right-0 md:right-[5.5rem] top-0 md:top-[4.5rem] z-0"
+          class="hidden md:block md:absolute w-full md:w-[60%] right-0 md:right-[6rem] top-0 md:top-[6rem] z-0"
           alt="hero image">
       </div>
       <div class="hidden lg:mt-0 lg:col-span-5 lg:flex relative">

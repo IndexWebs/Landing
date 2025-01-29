@@ -3,7 +3,7 @@
         <div class="w-full  py-8 space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
             <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-                <img class="w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+                <img class="w-[70%] md:w-[90%] mb-4 rounded-lg lg:mb-0 lg:flex"
                     src="@/assets/images/Section01Illustration.svg" alt="dashboard feature image">
                 <div class="text-gray-500 sm:text-lg dark:text-gray-400">
                     <h2 class="mb-4 font-extrabold tracking-tight">JUNTOS TODO ES
