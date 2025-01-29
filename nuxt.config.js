@@ -2,7 +2,7 @@ export default {
   mode: "universal",
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Doggy Stickers",
+    title: "Index Webs",
     htmlAttrs: {
       lang: "en",
     },
@@ -13,7 +13,7 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Karla:wght@300&display=swap',
