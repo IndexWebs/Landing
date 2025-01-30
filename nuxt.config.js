@@ -15,40 +15,8 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
       {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@100&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@200&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@300&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@400&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@500&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@600&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@700&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@800&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway:wght@900&display=swap',
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap",
       },
     ],
   },
