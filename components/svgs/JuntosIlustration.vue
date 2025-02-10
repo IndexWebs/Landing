@@ -527,26 +527,6 @@ export default {
 
         registerGsap() {
             gsap.registerPlugin(ScrollTrigger);
-            this.scrollAnimation();
-        },
-
-        // Método para las animaciones de ScrollTrigger
-        scrollAnimation() {
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".box",
-                    start: "top 80%",
-                    end: "+=350",
-                    markers: true,
-                    scrub: 1,
-                    pin: false,
-                },
-            })
-                .from("#Arrow", {
-                    scale: 0.5,  // Inicia con escala de altura 0
-                    transformOrigin: "bottom",  // Crece desde la parte inferior
-                    duration: 2
-                });
         },
     },
 };

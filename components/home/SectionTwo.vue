@@ -61,9 +61,7 @@
     </section>
 </template>
 
-<script lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+<script>
 import JuntosIlustration from "../svgs/JuntosIlustration.vue";
 
 export default {
@@ -71,34 +69,6 @@ export default {
     components: {
         JuntosIlustration
     },
-    mounted() {
-        // 📌 Registrar ScrollTrigger dentro de mounted()
-        this.registerGsap();
-    },
 
-    methods: {
-        // Método para registrar GSAP y ScrollTrigger
-        registerGsap(): void {
-            gsap.registerPlugin(ScrollTrigger);
-            this.scrollAnimation();
-        },
-
-        // Método para las animaciones de ScrollTrigger
-        scrollAnimation(): void {
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".box",
-                    start: "top 80%",
-                    end: "+=350",
-                    markers: true,
-                    scrub: 1,
-                    pin: false,
-                },
-            })
-                .from(".text1", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
-                .from(".text2", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
-                .from(".text3", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 });
-        },
-    },
 };
 </script>

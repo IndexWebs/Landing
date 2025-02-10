@@ -43,14 +43,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "~/components/home/Hero.vue";
 import SectionOne from "~/components/home/SectionOne.vue";
 import SectionTwo from "~/components/home/SectionTwo.vue";
 import SectionThree from "~/components/home/SectionThree.vue";
 import Reviews from "~/components/home/Reviews.vue";
 import Contacto from "~/components/home/Contacto.vue";
-import gsap from "gsap";
 
 export default {
   components: {
@@ -62,12 +63,48 @@ export default {
     Contacto,
   },
   mounted() {
-    gsap.from(".ilustracion", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-    });
+    // 📌 Registrar ScrollTrigger dentro de mounted()
+    this.registerGsap();
+  },
+
+  methods: {
+    // Método para registrar GSAP y ScrollTrigger
+    registerGsap(): void {
+      gsap.registerPlugin(ScrollTrigger);
+      this.scrollAnimation();
+    },
+
+    // Método para las animaciones de ScrollTrigger
+    scrollAnimation(): void {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".box",
+          start: "top 80%",
+          end: "+=350",
+          markers: true,
+          scrub: 1,
+          pin: false,
+        },
+      })
+        .from(".text1", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
+        .from(".text2", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
+        .from(".text3", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".box",
+          start: "top 80%",
+          end: "+=350",
+          markers: true,
+          scrub: 1,
+          pin: false,
+        },
+      })
+        .from("#Arrow", {
+          scale: 0.5,  // Inicia con escala de altura 0
+          transformOrigin: "bottom",  // Crece desde la parte inferior
+          duration: 2
+        });
+    },
   },
 };
 </script>
