@@ -43,7 +43,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "~/components/home/Hero.vue";
@@ -69,13 +69,13 @@ export default {
 
   methods: {
     // Método para registrar GSAP y ScrollTrigger
-    registerGsap(): void {
+    registerGsap(){
       gsap.registerPlugin(ScrollTrigger);
       this.scrollAnimation();
     },
 
     // Método para las animaciones de ScrollTrigger
-    scrollAnimation(): void {
+    scrollAnimation() {
       gsap.timeline({
         scrollTrigger: {
           trigger: ".box",

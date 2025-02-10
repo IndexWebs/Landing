@@ -500,7 +500,7 @@ export default {
             repeat: -1,
             yoyo: true,
         });
-        this.registerGsap();
+        //this.registerGsap();
     },
 
     destroyed() {
@@ -525,9 +525,9 @@ export default {
             });
         },
 
-        registerGsap() {
-            gsap.registerPlugin(ScrollTrigger);
-        },
+        // registerGsap() {
+        //     gsap.registerPlugin(ScrollTrigger);
+        // },
     },
 };
 </script>
