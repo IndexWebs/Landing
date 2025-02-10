@@ -7,10 +7,10 @@ module.exports = {
         sans: ['Raleway', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: '#B53359',
+        primary: '#FF365D',
         primary50: '#D74763',
         primarylight: '#FA7790',
-        secondary: '#4042E2',
+        secondary: '#3D7CFF',
         secondarydark: '#2B3582',
         secondary50: '#A3BFFB',
         secondary60: '#DCE4FE',

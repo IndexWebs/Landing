@@ -1,7 +1,9 @@
 <template>
   <div class="pb-8">
-    <Hero />
-    <!-- <SectionOne /> -->
+    <div class="ilustracion">
+      <Hero />
+    </div>
+    <SectionOne />
     <SectionTwo />
     <SectionThree />
     <Reviews />
@@ -48,6 +50,7 @@ import SectionTwo from "~/components/home/SectionTwo.vue";
 import SectionThree from "~/components/home/SectionThree.vue";
 import Reviews from "~/components/home/Reviews.vue";
 import Contacto from "~/components/home/Contacto.vue";
+import gsap from "gsap";
 
 export default {
   components: {
@@ -56,7 +59,15 @@ export default {
     SectionTwo,
     SectionThree,
     Reviews,
-    Contacto
+    Contacto,
+  },
+  mounted() {
+    gsap.from(".ilustracion", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+    });
   },
 };
 </script>

@@ -1,7 +1,8 @@
 <template>
-    <section class="bg-white dark:bg-gray-800 flex flex-col md:flex-row py-10 md:py-20 px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
+    <section
+        class="bg-white dark:bg-gray-800 flex flex-col md:flex-row py-10 md:py-20 px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
         <div class="flex items-center justify-center w-2/2 md:w-1/2 rounded-r-3xl relative">
-            <img src="@/assets/images/contacto.svg" alt="hero image" class="w-[70%]">
+            <ContactoIlustration class="w-[70%]" />
         </div>
         <div class="w-2/2 md:w-1/2 p-0 md:p-16">
             <h2 class="mb-4 font-extrabold tracking-tight uppercase">Contacto:</h2>
@@ -60,8 +61,11 @@
 </template>
 
 <script>
+import ContactoIlustration from '../svgs/ContactoIlustration.vue';
+
 
 export default {
     name: "Contacto",
+    components: { ContactoIlustration }
 };
 </script>

@@ -6,17 +6,18 @@
         <img src="@/assets/images/MobileHeroIllustration.svg"
           class="md:hidden block md:absolute w-full md:w-[65%] right-0 md:right-[5.5rem] top-0 md:top-[4.5rem] z-0 ml-6"
           alt="hero image">
-        <h1
+        <h1 id="Title"
           class="font-extrabold leading-none tracking-tight mb-4 text-3xl md:text-6xl dark:text-white relative z-10 text-center md:text-left">
-          Una comunidad de emprendedores,<br><span class="text-primary50">creciendo juntos</span></h1>
-        <p class="text-center md:text-left max-w-xs md:max-w-xl mb-12 font-light text-gray-500 dark:text-gray-400 relative z-10">
+          Una comunidad de emprendedores,<br><span class="text-primary">creciendo juntos</span></h1>
+        <p
+          class="text-center md:text-left max-w-xs md:max-w-xl mb-12 font-light text-gray-500 dark:text-gray-400 relative z-10">
           Somos el puente que conecta emprendedores. Comparte recursos, divide gastos y crece junto a otros como tú.</p>
         <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4 relative z-10">
           <PrimaryButton text="Unete a la comunidad" />
         </div>
-        <img src="@/assets/images/HeroIllustration.svg"
-          class="hidden md:block md:absolute w-full md:w-[60%] right-0 md:right-[6rem] top-0 md:top-[6rem] z-0"
-          alt="hero image">
+
+        <HeroIlustration
+          class="hidden md:block md:absolute w-full md:w-[60%] right-0 md:right-[2rem] top-0 md:top-[0rem] z-0" />
       </div>
       <div class="hidden lg:mt-0 lg:col-span-5 lg:flex relative">
 
@@ -30,16 +31,32 @@
 import PrimaryButton from '../shared/PrimaryButton.vue';
 import SecondaryButton from '../shared/SecondaryButton.vue';
 import SectionOne from './SectionOne.vue';
-
-// import ThreeScene from "@/components/shared/ThreeScene.vue"
+import HeroIlustration from '@/components/svgs/HeroIlustration.vue';
+import { gsap } from "gsap";
 
 export default {
   name: "Hero",
 
+  mounted() {
+    gsap.registerPlugin(gsap.ScrollTrigger);
+
+    gsap.from("#Title", {
+      scale: 0,
+      duration: 0.8,
+      ease: "elastic.out(1, 0.5)",
+      scrollTrigger: {
+        trigger: "#Title",
+        start: "top 75%",
+        toggleActions: "play none none none"
+      }
+    });
+  },
+
   components: {
     PrimaryButton,
     SecondaryButton,
-    SectionOne
+    SectionOne,
+    HeroIlustration
   }
 };
 </script>

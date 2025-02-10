@@ -3,12 +3,12 @@
     <nav class="bg-white border-gray-200 py-2.5 w-full px-8 md:px-20 2xl:px-40">
       <div class="flex flex-wrap items-center justify-between w-full">
         <a href="#" class="flex items-center">
-          <img src="@/assets/images/Logo.png" class="h-6 mr-1 sm:h-9" alt="Landwind Logo" />
-          <span class="self-center text-xl font-semibold whitespace-nowrap">Index</span>
+          <img src="@/assets/images/Logo.png" class="h-9 mr-1 sm:h-9" alt="Landwind Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-tertiary">Index</span>
         </a>
-        <div class="flex items-center lg:order-2">
+        <div class="flex lg:hidden items-center lg:order-2">
           <button data-collapse-toggle="mobile-menu-2" type="button"
-            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            class="items-center p-2 ml-1 text-sm text-gray-500 rounded-lg block lg:absolute hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="mobile-menu-2" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
