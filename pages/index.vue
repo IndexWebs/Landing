@@ -81,20 +81,20 @@ export default {
           trigger: ".box",
           start: "top 80%",
           end: "+=350",
-          markers: true,
+          markers: false,
           scrub: 1,
           pin: false,
         },
       })
-        .from(".text1", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
-        .from(".text2", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 })
-        .from(".text3", { x: window.innerWidth * 0.3, opacity: 0, duration: 1 });
+        .from(".text1", { x: window.innerWidth * 0.1, opacity: 0, duration: 1 })
+        .from(".text2", { x: window.innerWidth * 0.1, opacity: 0, duration: 1 })
+        .from(".text3", { x: window.innerWidth * 0.1, opacity: 0, duration: 1 });
       gsap.timeline({
         scrollTrigger: {
           trigger: ".box",
           start: "top 80%",
           end: "+=350",
-          markers: true,
+          markers: false,
           scrub: 1,
           pin: false,
         },

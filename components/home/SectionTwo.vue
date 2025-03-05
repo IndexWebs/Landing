@@ -5,7 +5,7 @@
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
                 <!-- <img class="w-[70%] md:w-[90%] mb-4 rounded-lg lg:mb-0 lg:flex"
                     src="@/assets/images/Section01Illustration.svg" alt="dashboard feature image"> -->
-                <JuntosIlustration class="w-[70%] md:w-[90%] mb-4 rounded-lg lg:mb-0 lg:flex" />
+                <JuntosIlustration class="w-[70%] md:w-[90%] mb-4 rounded-lg lg:mb-0 lg:flex overflow-hidden" />
                 <div class="text-gray-500 sm:text-lg dark:text-gray-400 box">
                     <h2 class="mb-4 font-extrabold tracking-tight">JUNTOS TODO ES
                         MEJOR:</h2>

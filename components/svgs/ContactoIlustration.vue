@@ -1,5 +1,5 @@
 <template>
-    <svg width="605" viewBox="0 0 605 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="605" viewBox="0 0 652 600" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="Illustration">
             <g id="Group">
                 <path id="Vector"
@@ -438,9 +438,30 @@
 </template>
 
 <script>
+import gsap from "gsap";
 
 export default {
     name: "ContactoIlustration",
+
+    mounted() {
+        gsap.to("#Chat1", {
+            rotation: 5,
+            scale: 0.95, // Reduce el tamaño ligeramente
+            duration: 8,
+            yoyo: true, // Hace que la animación vuelva a su estado original
+            repeat: -1, // Animación infinita
+            ease: "power1.inOut" // Efecto suave
+        });
+        gsap.to("#Chat2", {
+            rotation: -5,
+            scale: 0.95, // Reduce el tamaño ligeramente
+            duration: 8,
+            transformOrigin: "right bottom", // Punto de anclaje en la esquina inferior derecha
+            yoyo: true, // Hace que la animación vuelva a su estado original
+            repeat: -1, // Animación infinita
+            ease: "power1.inOut" // Efecto suave
+        });
+    }
 
 };
 </script>
