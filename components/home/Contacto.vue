@@ -67,9 +67,9 @@ export default {
     methods: {
         async handleSubmit(event) {
             const formData = new FormData(event.target);
-            const response = await fetch("/", {
+            const response = await fetch("/.netlify/functions/send-email", {
                 method: "POST",
-                body: formData,
+                body: JSON.stringify(Object.fromEntries(formData)),
             });
 
             if (response.ok) {
@@ -78,6 +78,7 @@ export default {
                 alert("Hubo un error al enviar el formulario");
             }
         },
+
     },
 };
 </script>
