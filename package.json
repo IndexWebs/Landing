@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.25.3",
+    "fetch-blob": "3",
     "firebase": "8.9",
     "form-data": "^4.0.2",
     "gsap": "^3.12.7",
