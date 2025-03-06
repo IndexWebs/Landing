@@ -19,7 +19,6 @@ export async function handler(event) {
         method: "POST",
         headers: {
             Authorization: `Basic ${Buffer.from(`api:c3869efe4c8fe5e6a8b4b89066b9e8a8-e298dd8e-b461148a`).toString("base64")}`,
-            "Content-Type": "multipart/form-data",
         },
         body: formData,
     });
