@@ -118,7 +118,7 @@ const createStore = () => {
           const response = await emailjs.send(
             "service_gxf5b4n",
             "template_wcys6nj",
-            this.form,
+            formData,
             "466fNtFvgqCs0Cc7v"
           );
 
