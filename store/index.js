@@ -2,9 +2,8 @@ import Vuex from "vuex";
 import { db, firebase } from "@/plugins/firebase";
 import "firebase/storage";
 import emailjs from "emailjs-com";
+import { useToast } from "vue-toastification"; // Importa useToast
 import "vue-toastification/dist/index.css";
-
-const toast = Toast();
 
 const createStore = () => {
   return new Vuex.Store({
@@ -117,6 +116,7 @@ const createStore = () => {
         }
       },
       async sendEmail({ commit }, formData) {
+        const toast = useToast();
         try {
           const response = await emailjs.send(
             "service_gxf5b4n",
