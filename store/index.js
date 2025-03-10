@@ -1,6 +1,8 @@
 import Vuex from "vuex";
 import { db, firebase } from "@/plugins/firebase";
 import "firebase/storage";
+import emailjs from "emailjs-com";
+
 const createStore = () => {
   return new Vuex.Store({
     state: {
