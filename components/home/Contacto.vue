@@ -78,20 +78,13 @@ export default {
 
     methods: {
         async sendEmail() {
-            try {
-                const response = await emailjs.send(
-                    "service_gxf5b4n",
-                    "template_wcys6nj",
-                    this.form,
-                    "466fNtFvgqCs0Cc7v"
-                );
-                console.log("Correo enviado", response);
+            const response = await this.$store.dispatch("sendEmail", this.form);
+            if (response.success) {
                 alert("Correo enviado con éxito");
-            } catch (error) {
-                console.error("Error al enviar", error);
-                alert("Hubo un error al enviar el correo");
+            } else {
+                alert("Error al enviar el correo");
             }
-        },
-    },
+        }
+    }
 };
 </script>

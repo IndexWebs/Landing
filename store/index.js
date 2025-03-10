@@ -111,21 +111,37 @@ const createStore = () => {
           commit("setProduct", {});
         }
       },
+      async sendEmail({ commit }, formData) {
+        try {
+          const response = await emailjs.send(
+            "service_gxf5b4n",
+            "template_wcys6nj",
+            this.form,
+            "466fNtFvgqCs0Cc7v"
+          );
+
+          console.log("Correo enviado correctamente:", response);
+          return { success: true };
+        } catch (error) {
+          console.error("Error enviando el correo:", error);
+          return { success: false, error };
+        }
+      },
       async filterProducts({ commit }, category) {
         try {
           let query = db.collection("products");
-          
+
           // Si se ha seleccionado una categoría específica, hacer la consulta filtrada
           if (category !== "") {
             query = query.where("category", "==", category);
           }
-      
+
           const snapshot = await query.get();
           const filteredProducts = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
           }));
-          
+
           commit("setFilteredProducts", filteredProducts);
         } catch (error) {
           console.error("Error filtering products:", error);
