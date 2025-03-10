@@ -10,19 +10,19 @@
                 dudes en ponerte en contacto con nosotros y te responderemos a la brevedad. ¡Estamos emocionados de
                 acompañarte en el crecimiento de tu emprendimiento!.</p>
 
-            <form name="contacto" method="POST" data-netlify="true" class="space-y-4" @submit.prevent="handleSubmit">
+            <form name="contacto" method="POST" data-netlify="true" class="space-y-4" @submit.prevent="sendEmail">
                 <input type="hidden" name="form-name" value="contacto" />
 
                 <div class="grid grid-cols-2 gap-4">
                     <div class="relative z-0 w-full mb-6 group">
-                        <input
+                        <input v-model="form.name"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             id="name" name="name" placeholder=" " required />
                         <label for="name"
                             class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600">Nombre</label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input
+                        <input v-model="form.celular"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             type="tel" id="celular" name="celular" placeholder=" " />
                         <label for="celular"
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="relative z-0 w-full mb-10 group">
-                    <input
+                    <input v-model="form.email"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         type="email" id="email" name="email" placeholder=" " required />
                     <label for="email"
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="relative z-0 w-full mb-10 group">
-                    <textarea id="message" name="message" rows="4"
+                    <textarea v-model="form.message" id="message" name="message" rows="4"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         placeholder=" " required></textarea>
                     <label for="message"
@@ -58,27 +58,40 @@
 
 <script>
 import ContactoIlustration from '../svgs/ContactoIlustration.vue';
+import emailjs from "emailjs-com";
 
 
 export default {
     name: "Contacto",
     components: { ContactoIlustration },
 
-    methods: {
-        async handleSubmit(event) {
-            const formData = new FormData(event.target);
-            const response = await fetch("/.netlify/functions/send-email", {
-                method: "POST",
-                body: JSON.stringify(Object.fromEntries(formData)),
-            });
+    data() {
+        return {
+            form: {
+                name: "",
+                email: "",
+                celular: "",
+                message: "",
+            },
+        };
+    },
 
-            if (response.ok) {
-                alert("Formulario enviado con éxito");
-            } else {
-                alert("Hubo un error al enviar el formulario");
+    methods: {
+        async sendEmail() {
+            try {
+                const response = await emailjs.send(
+                    "service_gxf5b4n",
+                    "template_wcys6nj",
+                    this.form,
+                    "466fNtFvgqCs0Cc7v"
+                );
+                console.log("Correo enviado", response);
+                alert("Correo enviado con éxito");
+            } catch (error) {
+                console.error("Error al enviar", error);
+                alert("Hubo un error al enviar el correo");
             }
         },
-
     },
 };
 </script>
