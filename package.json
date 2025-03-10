@@ -22,7 +22,8 @@
     "three": "^0.172.0",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vue-toastification": "^1.7.14"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",

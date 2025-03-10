@@ -2,6 +2,9 @@ import Vuex from "vuex";
 import { db, firebase } from "@/plugins/firebase";
 import "firebase/storage";
 import emailjs from "emailjs-com";
+import "vue-toastification/dist/index.css";
+
+const toast = Toast();
 
 const createStore = () => {
   return new Vuex.Store({
@@ -121,12 +124,17 @@ const createStore = () => {
             formData,
             "466fNtFvgqCs0Cc7v"
           );
-
-          console.log("Correo enviado correctamente:", response);
-          return { success: true };
+          if (response.ok) {
+            toast.success("Correo enviado con éxito 🚀");
+            return { success: true };
+          } else {
+            toast.error("Error al enviar el correo ❌");
+            return { success: false };
+          }
         } catch (error) {
-          console.error("Error enviando el correo:", error);
-          return { success: false, error };
+          toast.error("Error de conexión ❌");
+          console.error(error);
+          return { success: false };
         }
       },
       async filterProducts({ commit }, category) {
