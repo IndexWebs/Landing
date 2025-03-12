@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white dark:bg-gray-800 px-8 md:px-20 2xl:px-40">
+    <section ref="comunidad" id="comunidad" class="bg-white dark:bg-gray-800 px-8 md:px-20 2xl:px-40">
         <!-- Row -->
         <div div class="w-full py-8 space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
             <div class="text-gray-500 sm:text-lg dark:text-gray-400 flex flex-col justify-center items-center">

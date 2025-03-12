@@ -1,5 +1,5 @@
 <template>
-    <section
+    <section ref="contacto" id="contacto"
         class="bg-white dark:bg-gray-800 flex flex-col md:flex-row py-10 md:py-20 px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
         <div class="flex items-center justify-center w-2/2 md:w-1/2 rounded-r-3xl relative">
             <ContactoIlustration class="w-[90%]" />

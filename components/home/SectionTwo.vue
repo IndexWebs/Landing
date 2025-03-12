@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white dark:bg-gray-800 px-8 md:px-20 2xl:px-40">
+    <section ref="nosotros" id="nosotros" class="bg-white dark:bg-gray-800 px-8 md:px-20 2xl:px-40 overflow-hidden">
         <div class="w-full py-8 space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
             <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">

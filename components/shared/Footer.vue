@@ -4,16 +4,13 @@
       <div class="flex w-full justify-between flex-wrap">
         <div class="px-4">
           <nuxt-link to="/" class="flex space-x-2 items-center -m-1.5 p-1.5 mb-2">
-          <img
-            class="h-10 w-auto"
-            src="@/assets/images/Logo.svg"
-            alt=""
-          />
-          <span class=" text-lg font-semibold">Doggy Stickers</span>
+            <button class="flex items-center">
+          <img src="@/assets/images/Logo.png" class="h-9 mr-1 sm:h-9" alt="Landwind Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-tertiary">Index</span>
+        </button>
         </nuxt-link>
           <p class="w-6/12 text-xs">
-            Difundimos la cultura del vino a través de propuestas que eleven el
-            placer de beber.
+            Somos el puente que conecta emprendedores. Comparte recursos, divide gastos y crece junto a otros como tú.
           </p>
         </div>
         <div class="items-end px-4">
@@ -34,15 +31,8 @@
                 <li>
                   <a
                     class="text-gray-800 hover:text-primary text-opacity-70 hover:text-opacity-70 transition-all ease-out duration-300 block pb-2"
-                    href="#"
-                    >096260462</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="text-gray-800 hover:text-primary text-opacity-70 hover:text-opacity-70 transition-all ease-out duration-300 block pb-2"
-                    href="#"
-                    >Instagram</a
+                    href="+573137642466"
+                    >3137642466</a
                   >
                 </li>
               </ul>

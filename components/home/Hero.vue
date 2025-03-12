@@ -1,8 +1,9 @@
 <template>
-  <section
+  <section ref="inicio" id="inicio"
     class="bg-secondarylight dark:bg-gray-900 flex flex-col justify-start md:justify-center pb-20 md:pb-0 h-auto md:h-[84vh] rounded-b-4xl px-8 md:px-20 2xl:px-40 space-y-6 md:space-y-0">
     <div class="grid w-full pt-20 pb-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-      <div class="mr-auto flex flex-col-reverse md:flex-col place-self-center lg:col-span-7 realative items-center md:items-start">
+      <div
+        class="mr-auto flex flex-col-reverse md:flex-col place-self-center lg:col-span-7 realative items-center md:items-start">
         <div class="flex flex-col justify-center md:justify-start items-center md:items-start">
           <h1 id="Title"
             class="font-extrabold leading-none tracking-tight mb-4 text-3xl md:text-6xl dark:text-white relative z-10 text-center md:text-left">
@@ -12,7 +13,7 @@
             Somos el puente que conecta emprendedores. Comparte recursos, divide gastos y crece junto a otros como tú.
           </p>
           <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4 relative z-10">
-            <PrimaryButton text="Unete a la comunidad" />
+            <PrimaryButton @click="handleUnirse" text="Unete a la comunidad" />
           </div>
         </div>
         <HeroIlustration
@@ -51,6 +52,15 @@ export default {
     });
   },
 
+  methods: {
+    handleUnirse() {
+      var number = +59897955640;
+      var pedido = "Hola! quisiera mas informacion sobre la comunidad de emprendedores!";
+      window.open(
+        `https://api.whatsapp.com/send?phone=${number}&text=%20${pedido}.`
+      );
+    },
+  },
   components: {
     PrimaryButton,
     SecondaryButton,

@@ -1,13 +1,14 @@
 <template>
   <div class="pb-8">
+    <HeaderNav @scroll-to-section="onScroll" />
     <div class="ilustracion">
-      <Hero />
+      <Hero/>
     </div>
     <SectionOne />
-    <SectionTwo />
-    <SectionThree />
+    <SectionTwo ref="nosotros"/>
+    <SectionThree ref="comunidad"/>
     <Reviews />
-    <Contacto />
+    <Contacto ref="contacto" />
     <section class=" bg-gray-100 dark:bg-gray-800">
       <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
         <div class="flex flex-col items-center max-w-screen-sm mx-auto text-center">
@@ -46,6 +47,7 @@
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HeaderNav from "~/components/shared/HeaderNav.vue";
 import Hero from "~/components/home/Hero.vue";
 import SectionOne from "~/components/home/SectionOne.vue";
 import SectionTwo from "~/components/home/SectionTwo.vue";
@@ -55,6 +57,7 @@ import Contacto from "~/components/home/Contacto.vue";
 
 export default {
   components: {
+    HeaderNav,
     Hero,
     SectionOne,
     SectionTwo,
@@ -72,6 +75,13 @@ export default {
     registerGsap(){
       gsap.registerPlugin(ScrollTrigger);
       this.scrollAnimation();
+    },
+
+    onScroll(sectionId){
+      const section = this.$refs[sectionId]?.$el || this.$refs[sectionId];
+if (section) {
+  section.scrollIntoView({ behavior: "smooth" });
+}
     },
 
     // Método para las animaciones de ScrollTrigger
