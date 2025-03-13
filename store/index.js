@@ -1,6 +1,7 @@
 import Vuex from "vuex";
 import { db, firebase } from "@/plugins/firebase";
 import "firebase/storage";
+import { send } from "emailjs-com";
 import emailjs from "emailjs-com";
 import { useToast } from "vue-toastification"; // Importa useToast
 import "vue-toastification/dist/index.css";
@@ -115,8 +116,7 @@ const createStore = () => {
           commit("setProduct", {});
         }
       },
-      async sendEmail({ commit }, formData) {
-        const toast = useToast();
+      async sendEmail(_, formData) {
         try {
           const response = await emailjs.send(
             "service_gxf5b4n",
@@ -124,17 +124,12 @@ const createStore = () => {
             formData,
             "466fNtFvgqCs0Cc7v"
           );
-          if (response.ok) {
-            toast.success("Correo enviado con éxito 🚀");
-            return { success: true };
-          } else {
-            toast.error("Error al enviar el correo ❌");
-            return { success: false };
-          }
+
+          console.log("Respuesta de EmailJS:", response); // 🔍 Depuración
+          return { success: response?.status === 200 }; // ✅ Asegura que devuelve un objeto
         } catch (error) {
-          toast.error("Error de conexión ❌");
-          console.error(error);
-          return { success: false };
+          console.error("Error en sendEmail:", error);
+          return { success: false, error }; // ✅ Devuelve un objeto incluso si falla
         }
       },
       async filterProducts({ commit }, category) {

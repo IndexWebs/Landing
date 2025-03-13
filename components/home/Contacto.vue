@@ -48,8 +48,9 @@
                 </div>
 
                 <div>
-                    <button type="submit"
-                        class="w-full bg-secondarydark text-white font-medium py-3 px-4 rounded-lg shadow hover:bg-secondary transition-all">Enviar</button>
+                    <button :disabled="isLoading" type="submit"
+                        class="w-full bg-secondarydark text-white font-medium py-3 px-4 rounded-lg shadow hover:bg-secondary transition-all">{{
+                            isLoading ? "Enviando..." : "Enviar" }}</button>
                 </div>
             </form>
         </div>
@@ -57,8 +58,7 @@
 </template>
 
 <script>
-import ContactoIlustration from '../svgs/ContactoIlustration.vue';
-
+import ContactoIlustration from "../svgs/ContactoIlustration.vue";
 
 export default {
     name: "Contacto",
@@ -72,18 +72,32 @@ export default {
                 celular: "",
                 message: "",
             },
+            isLoading: false,
         };
     },
 
     methods: {
         async sendEmail() {
+            if (this.isLoading) return;
+            this.isLoading = true;
             const response = await this.$store.dispatch("sendEmail", this.form);
+
+            console.log("Respuesta del store:", response); // 🔍 Depuración
+
             if (response.success) {
-                alert("Correo enviado con éxito");
+                this.$toast.success("Correo enviado con éxito 🚀"); // ✅ Correcto en Nuxt
+
+                this.form = {
+                    name: "",
+                    email: "",
+                    celular: "",
+                    message: "",
+                };
             } else {
-                alert("Error al enviar el correo");
+                this.$toast.error("Error al enviar el correo ❌");
             }
-        }
-    }
+            this.isLoading = false;
+        },
+    },
 };
 </script>
