@@ -1,7 +1,7 @@
 <template>
   <footer class="relative bg-white pt-8 pb-6">
     <div class="container mx-auto px-4">
-      <div class="flex w-full justify-between flex-wrap">
+      <div class="flex flex-col md:flex-row w-full justify-between space-y-3 md:space-y-0">
         <div class="px-4">
           <nuxt-link to="/" class="flex space-x-2 items-center -m-1.5 p-1.5 mb-2">
             <button class="flex items-center">
@@ -13,7 +13,7 @@
             Somos el puente que conecta emprendedores. Comparte recursos, divide gastos y crece junto a otros como tú.
           </p>
         </div>
-        <div class="items-end px-4">
+        <div class="items-end px-0 md:px-4">
           <div class="flex flex-wrap items-top mb-6">
             <div class="w-full lg:w-4/12 px-4">
               <span

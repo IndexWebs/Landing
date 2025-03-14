@@ -18,7 +18,7 @@
             por
             WhatsApp para comenzar a conocer todos los beneficios y cómo podemos trabajar juntos.</p>
           <!-- From Uiverse.io by NelsonDJCR -->
-          <button class="button2 flex items-center justify-center">
+          <button @click="onClick" class="button2 flex items-center justify-center">
             WhatsApp
             <svg viewBox="0 0 48 48" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -115,6 +115,14 @@ if (section) {
           duration: 2
         });
     },
+
+    onClick(){
+      var number = +573137642466;
+      var pedido = "Hola! quisiera mas informacion sobre la comunidad de emprendedores!";
+      window.open(
+        `https://api.whatsapp.com/send?phone=${number}&text=%20${pedido}`
+      );
+    }
   },
 };
 </script>

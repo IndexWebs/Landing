@@ -54,10 +54,10 @@ export default {
 
   methods: {
     handleUnirse() {
-      var number = +59897955640;
+      var number = +573137642466;
       var pedido = "Hola! quisiera mas informacion sobre la comunidad de emprendedores!";
       window.open(
-        `https://api.whatsapp.com/send?phone=${number}&text=%20${pedido}.`
+        `https://api.whatsapp.com/send?phone=${number}&text=%20${pedido}`
       );
     },
   },
